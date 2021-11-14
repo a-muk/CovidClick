@@ -1311,11 +1311,6 @@ def register_request(request):
 			user = form.save()
 			login(request, user)
 			messages.success(request, "Registration successful." )
-			subject = 'Welcome to CovidClick'
-			message = f'Hi {user.username}, thank you for registering with CovidClick.'
-			email_from = settings.EMAIL_HOST_USER
-			recipient_list = [user.email, ]
-			send_mail( subject, message, email_from, recipient_list )
 			return redirect("beds.html")
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewUserForm()
